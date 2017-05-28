@@ -1,23 +1,25 @@
- .gradle/
- .idea/*
- .idea/.name
- .idea/compiler.xml
- .idea/gradle.xml
- .idea/libraries/
- .idea/misc.xml
- .idea/modules.xml
- .idea/modules/
- .idea/vcs.xml
- .idea/workspace.xml
- build/*
- help.iml
- help.ipr
- help.iws
- src/main/resources/static/npm-libs/*
- src/main/resources/static/npm-libs/@uirouter/
- src/main/resources/static/npm-libs/angular-ui-bootstrap/
- src/main/resources/static/npm-libs/angular/
- src/main/resources/static/npm-libs/bootstrap/
- src/main/resources/static/npm-libs/jquery/
- src/main/resources/static/npm-libs/restangular/
- src/main/resources/static/npm-libs/underscore/
+.gradle/
+.idea/*
+.idea/**
+.idea/.name
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/libraries/
+.idea/misc.xml
+.idea/modules.xml
+.idea/modules/
+.idea/vcs.xml
+.idea/workspace.xml
+build/*
+help.iml
+help.ipr
+help.iws
+src/main/resources/static/npm-libs/*
+src/main/resources/static/npm-libs/@uirouter/
+src/main/resources/static/npm-libs/angular-ui-bootstrap/
+src/main/resources/static/npm-libs/angular/
+src/main/resources/static/npm-libs/bootstrap/
+src/main/resources/static/npm-libs/jquery/
+src/main/resources/static/npm-libs/restangular/
+src/main/resources/static/npm-libs/underscore/
+src/assets/*
