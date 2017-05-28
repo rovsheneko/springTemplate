@@ -6,7 +6,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+        classpath("com.craigburke.gradle:client-dependencies:1.4.0")
     }
 }
 
@@ -14,6 +15,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.craigburke.client-dependencies'
 
 jar {
     baseName = 'help-jar'
@@ -26,6 +28,10 @@ repositories {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+configurations {
+    dev
+}
 
 dependencies {
     // tag::jetty[]
@@ -42,4 +48,35 @@ dependencies {
     testCompile("junit:junit")
 //    testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    dev("org.springframework.boot:spring-boot-devtools")
+}
+
+bootRun {
+    // Use Spring Boot DevTool only when we run Gradle bootRun task
+    classpath = sourceSets.main.runtimeClasspath + configurations.dev
+}
+
+clientDependencies {
+    installDir = 'src/main/resources/static/npm-libs'
+    cacheDir = 'build/client-cache/'
+    userAgent = 'client-dependencies-gradle' //User agent used when making web requests
+    useGlobalCache = true
+    checkDownloads = true
+    threadPoolSize = 10
+    npm {
+        'bootstrap'('3.x.x', exclude: 'jquery')
+        'underscore'('1.x.x')
+        'restangular'('1.x.x', transitive: false)
+        'angular-animate'('1.x.x', into: 'angular/modules/angular-animate')
+        'angular-ui-router'('1.x.x', into: 'angular/modules/angular-ui-router')
+        'angular-resource'('1.x.x', into: 'angular/modules/angular-resource')
+        'angular-ui-bootstrap'('1.x.x', from: 'dist')
+                {
+            include 'ui-bootstrap-tpls.js'
+        }
+        'angular'('1.x.x')
+    }
+    bower {
+        'jquery'('2.0.0') // <1>
+    }
 }

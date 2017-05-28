@@ -8,10 +8,9 @@ import com.rov.help.domain.Visitor;
 import com.rov.help.service.VisitorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,7 +22,7 @@ public class IndexController {
     @Value("${app.name}")
     private String name;
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String index() {
         return "hi there Tiffanichka from app" + name;
     }

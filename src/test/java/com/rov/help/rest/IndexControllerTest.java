@@ -49,7 +49,7 @@ public class IndexControllerTest {
     @Test
     public void index() throws Exception {
         String expectedResponse = "hi there Tiffanichka from app" + name;
-        mvc.perform(MockMvcRequestBuilders.get("/")
+        mvc.perform(MockMvcRequestBuilders.get("/home")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo(expectedResponse)));
@@ -57,7 +57,7 @@ public class IndexControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.base = new URL("http://localhost:" + port + "/");
+        this.base = new URL("http://localhost:" + port + "/home");
     }
 
     @Test

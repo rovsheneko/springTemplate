@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <title>Example - example-directive-isolate-production</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="npm-libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="npm-libs/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+
+    <script src="npm-libs/jquery/jquery.js"></script>
+    <script src="npm-libs/underscore/underscore.js"></script>
+    <script src="npm-libs/bootstrap/js/bootstrap.js"></script>
+    <script src="npm-libs/angular/angular.js"></script>
+    <script src="npm-libs/angular/modules/angular-resource/angular-resource.js"></script>
+    <script src="js/script.js"></script>
+
+</head>
+<body class="container" ng-app="ngHelp">
+<div ng-controller="CustomerController as customer">
+    <my-customer info="naomi"></my-customer>
+    <hr>
+    <my-customer info="igor"></my-customer>
+</div>
+
+<div ng-controller="FormCtr as data">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td class="ng-cloak">{{user.id}}</td>
+            <td class="ng-cloak">{{user.firstName}}</td>
+            <td class="ng-cloak">{{user.lastName}}</td>
+            <td class="ng-cloak btn btn-danger" ng-click="delete($index)">Delete</td>
+        </tr>
+        </tbody>
+        <div class="container">
+            <form ng-submit="submit()">
+                <div class="form-group row">
+                    <label for="regName" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input id="regName" ng-model="name" class="form-control" type="text"
+                               placeholder="Your name here..."/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="regLastName" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input id="regLastName" ng-model="lastName" type="text" class="form-control"
+                               placeholder="Your last name here..."/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="regEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input id="regEmail" ng-model="email" type="email" class="form-control"
+                        placeholder="email@provider.com"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="regDOB" class="col-sm-2 col-form-label">Date of birth</label>
+                    <div class="col-sm-10">
+                        <input id="regDOB" ng-model="dob"  type="date" class="form-control"
+                               placeholder="mm/dd/yyyy"/>
+                        <!--<md-datepicker id="regDate" ng-model="form.dob" md-placeholder="Enter your DOB">Date of birth</md-datepicker>-->
+                    </div>
+                </div>
+                <div class="form-group row inline">
+                    <div class="col-sm-10">
+                        <input type="submit" id="regSubmit" class="btn btn-primary" value="Submit" />
+                        <button type="reset" class="btn btn-danger">Reset form</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </table>
+</div>
+
+<div data-ng-view/>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/workarounds/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
