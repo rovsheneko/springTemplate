@@ -35,10 +35,10 @@ public class Application {
         };
     }
 
-    @Bean
-    @ConfigurationProperties("prod.datasource")
-    public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
-    }
+//    @Bean
+//    @ConfigurationProperties("prod.datasource")
+//    public DataSource dataSource() {
+//        return DataSourceBuilder.create().build();
+//    }
 }
 
