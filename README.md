@@ -22,3 +22,8 @@ gradle clean build
 gradle build --continuous
 #At the second terminal, start the Gradle bootRun task:
 gradle bootRun
+
+
+# inspect last started docker container
+docker ps -l -q
+docker inspect 55056672b05b

@@ -6,5 +6,7 @@
 # For more information see the documentation:
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
-
-exec asdf -p 8080
+#BUILD_FOLDER=/usr/local/app
+#mkdir -p $BUILD_FOLDER
+#cd $BUILD_FOLDER/artifacts/
+exec gradle bootRun
