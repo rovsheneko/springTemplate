@@ -20,7 +20,7 @@ ENV GRADLE_USER_HOME /gradle
 # TODO: Set labels used in OpenShift to describe the builder image
 LABEL io.k8s.description="Platform for building spring-boot apps with gradle" \
       io.k8s.display-name="builder spring-boot with gradle" \
-      io.openshift.expose-services="80:http" \
+      io.openshift.expose-services="3000:http" \
       io.openshift.tags="builder,spring-boot,gradle." 
 
 # TODO: Install required packages here:
@@ -63,7 +63,7 @@ USER root
 WORKDIR /user/local/app
 
 # TODO: Set the default port for applications built using this image
-EXPOSE 80
+EXPOSE 3000
 
 # TODO: Set the default CMD for the image
 CMD ["/usr/libexec/s2i/usage"]
